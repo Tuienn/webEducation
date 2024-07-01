@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Multilingo</title>
+
+
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Tona</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="dashboard.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li id="grade" class="nav-item active">
+                <a id="grade-item" class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-school"></i>
+                    <span>Grade</span>
+                </a>
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item active" href="grade-1.html">Grade 1</a>
+                        <a class="collapse-item" href="grade-2.html">Grade 2</a>
+                        <a class="collapse-item" href="grade-3.html">Grade 3</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Salary -->
+            <li class="nav-item">
+                <a class="nav-link" href="salary.html">
+                    <i class="fas fa-fw fa-money-bill "></i>
+                    <span>Salary</span></a>
+            </li>
+
+            <!-- Nav Item - Payment -->
+            <li class="nav-item">
+                <a class="nav-link" href="payment.html">
+                    <i class="fas fa-fw fa-credit-card "></i>
+                    <span>Payment</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Charts</span></a>
+            </li>
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <form class="form-inline">
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span id="admin-name" class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" id="profile" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" id="logout" href="#" data-toggle="modal"
+                                    data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                        For more information about DataTables, please visit the <a target="_blank"
+                            href="https://datatables.net">official DataTables documentation</a>.</p>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3"
+                            style="display: flex; justify-content: space-between; align-items: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">
+                                <div>
+                                    <select name="Class" id="select-class"
+                                        style="border-radius: 4px; color: rgb(85, 85, 85); padding: 8px 12px; width: 128px; margin: 12px; height: 42px;">
+                                        <option value="1">Class 1.1</option>
+                                        <option value="2">Class 1.2</option>
+                                        <option value="3">Class 1.3</option>
+                                    </select>
+                                    <button class="btn-add" id="btn-add-student"
+                                        style="border: none; background-color: #0f734f; color: aliceblue; border-radius: 4px; margin: 12px; padding: 8px; height: 42px; width: 128px;">Add
+                                        student</button>
+                                </div>
+                            </h6>
+
+                            <div>
+                                <select name="Year" id="select-year"
+                                    style="border-radius: 4px; color: rgb(85, 85, 85); padding: 8px 12px; margin: 12px; height: 42px; ;width: 128px;">
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2024">2024</option>
+                                </select>
+                                <button class="btn-add" id="btn-add-class"
+                                    style="border: none; background-color: #0f734f; color: aliceblue; border-radius: 4px; margin: 12px; padding: 8px; width: 128px; height: 42px;">Add
+                                    class</button>
+
+                            </div>
+
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Gender</th>
+                                            <th>Date of birth</th>
+                                            <th>Mobile</th>
+                                            <th>Address</th>
+                                            <th>Function</th>
+
+                                    </thead>
+                                    <tbody id="tbody">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" id="btn-logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal-->
+    <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="form-profile" style="display: flex; flex-direction: column; padding: 24px;">
+                    <div class="input-container" style="display: flex; flex-direction: column;">
+                        <label for="" style="overflow: hidden;">Họ và tên</label>
+                        <input id="adminFullName" class="form-input" type="text"
+                            style="padding: 8px ;border: solid 2px #9d9d9d; border-radius: 4px;">
+                        <span class="alert" style="padding: 0;height: 24px;font-style: italic;color:rgb(210, 100, 100)">
+                        </span>
+                    </div>
+
+                    <div class="input-container" style="display: flex; flex-direction: column;">
+                        <label for="" style="overflow: hidden;">Giới tính</label>
+                        <input id="adminGender" class="form-input" type="text"
+                            style="padding: 8px ;border: solid 2px #9d9d9d; border-radius: 4px;">
+                        <span class="alert" style="padding: 0;height: 24px;font-style: italic;color:rgb(210, 100, 100)">
+                        </span>
+                    </div>
+
+                    <div class="input-container" style="display: flex; flex-direction: column;">
+                        <label for="" style="overflow: hidden;">Ngày sinh</label>
+                        <input id="adminDateOfBirth" class="form-input" type="date"
+                            style="padding: 8px ;border: solid 2px #9d9d9d; border-radius: 4px;">
+                        <span class="alert" style="padding: 0;height: 24px;font-style: italic;color:rgb(210, 100, 100)">
+                        </span>
+                    </div>
+
+                    <div class="input-container" style="display: flex; flex-direction: column;">
+                        <label for="" style="overflow: hidden;">Số điện thoại</label>
+                        <input id="adminPhone" class="form-input" type="text"
+                            style="padding: 8px ;border: solid 2px #9d9d9d; border-radius: 4px;">
+                        <span class="alert"
+                            style="padding: 0;height: 24px;font-style: italic;color: rgb(210, 100, 100)"> </span>
+                    </div>
+
+                    <div class="modal-footer"
+                        style="width: 100%; padding: 0; grid-column-start: 1; grid-column-end: 3;">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal"
+                            style="margin: 0 12px;">Cancel</button>
+                        <a class="btn btn-primary" id="btn-accept-admin" style="margin: 0;">Accept</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Student Modal-->
+    <div class="modal fade" id="addStudentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="form-add-student" style="display: grid; grid-template-columns: 50% 50%; padding: 24px;">
+                    <div class="input-container" style="display: flex; flex-direction: column; margin-right: 12px">
+                        <label for="" style="overflow: hidden;">Họ và tên</label>
+                        <input id="fullName" class="form-input" type="text"
+                            style="padding: 8px ;border: solid 2px #9d9d9d; border-radius: 4px;">
+                        <span class="alert" style="padding: 0;height: 24px;font-style: italic;color:rgb(210, 100, 100)">
+                        </span>
+                    </div>
+
+                    <div class="input-container" style="display: flex; flex-direction: column;">
+                        <label for="" style="overflow: hidden;">Giới tính</label>
+                        <input id="gender" class="form-input" type="text"
+                            style="padding: 8px ;border: solid 2px #9d9d9d; border-radius: 4px;">
+                        <span class="alert" style="padding: 0;height: 24px;font-style: italic;color:rgb(210, 100, 100)">
+                        </span>
+                    </div>
+
+                    <div class="input-container" style="display: flex; flex-direction: column; margin-right: 12px">
+                        <label for="" style="overflow: hidden;">Ngày sinh</label>
+                        <input id="dateOfBirth" class="form-input" type="date"
+                            style="padding: 8px ;border: solid 2px #9d9d9d; border-radius: 4px;">
+                        <span class="alert" style="padding: 0;height: 24px;font-style: italic;color:rgb(210, 100, 100)">
+                        </span>
+                    </div>
+
+                    <div class="input-container" style="display: flex; flex-direction: column;">
+                        <label for="" style="overflow: hidden;">Địa chỉ</label>
+                        <input id="address" class="form-input" type="text"
+                            style="padding: 8px ;border: solid 2px #9d9d9d; border-radius: 4px;">
+                        <span class="alert"
+                            style="padding: 0;height: 24px;font-style: italic;color: rgb(210, 100, 100)"> </span>
+                    </div>
+
+                    <div class="input-container" style="display: flex; flex-direction: column;  margin-right: 12px">
+                        <label for="" style="overflow: hidden;">Số điện thoại</label>
+                        <input id="phone" class="form-input" type="number"
+                            style="padding: 8px ;border: solid 2px #9d9d9d; border-radius: 4px;">
+                        <span class="alert" style="padding: 0;height: 24px;font-style: italic;color:rgb(210, 100, 100)">
+                        </span>
+                    </div>
+
+                    <div class="input-container" style="display: flex; flex-direction: column;">
+                        <label for="" style="overflow: hidden;">Email</label>
+                        <input id="email" class="form-input" type="text"
+                            style="padding: 8px ;border: solid 2px #9d9d9d; border-radius: 4px;">
+                        <span class="alert"
+                            style="padding: 0;height: 24px;font-style: italic;color: rgb(210, 100, 100)"> </span>
+                    </div>
+
+                    <div class="modal-footer"
+                        style="width: 100%; padding: 0; grid-column-start: 1; grid-column-end: 3;">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal"
+                            style="margin: 0 12px;">Cancel</button>
+                        <a class="btn btn-primary" id="btn-accept-student" style="margin: 0;">Accept</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Class Modal-->
+    <div class="modal fade" id="addClassModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="form-add-class" style="display: grid; grid-template-columns: 50% 50%; padding: 24px;">
+                    <div style="display: flex; flex-direction: column; margin-right: 12px">
+                        <label for="" style="overflow: hidden;">Tên lớp</label>
+                        <input id="className" class="form-input" type="text"
+                            style="padding: 8px ;border: solid 2px #9d9d9d; border-radius: 4px">
+                        <span class="alert" style="padding: 0;height: 24px;font-style: italic;color:rgb(210, 100, 100)">
+                        </span>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column;">
+                        <label for="" style="overflow: hidden;">Giáo viên</label>
+                        <select id="teacher" class="form-input" type="text"
+                            style="padding: 8px ;border: solid 2px #9d9d9d; border-radius: 4px">
+
+                        </select>
+                        <span class="alert" style="padding: 0;height: 24px;font-style: italic;color:rgb(210, 100, 100)">
+                        </span>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; margin-right: 12px">
+                        <label for="" style="overflow: hidden;">Ngày bắt đầu</label>
+                        <input id="schedule-start" class="form-input" type="date"
+                            style="padding: 8px ;border: solid 2px #9d9d9d; border-radius: 4px">
+                        <span class="alert" style="padding: 0;height: 24px;font-style: italic;color:rgb(210, 100, 100)">
+                        </span>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column;">
+                        <label for="" style="overflow: hidden;">Khóa học</label>
+                        <select id="course" class="form-input" type="text"
+                            style="padding: 8px ;border: solid 2px #9d9d9d; border-radius: 4px">
+                            <option value="36">Cấp tốc</option>
+                            <option value="72">Full lộ trình</option>
+                        </select>
+                        <span class="alert" style="padding: 0;height: 24px;font-style: italic;color:rgb(210, 100, 100)">
+                        </span>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; margin-right: 12px">
+                        <label for="" style="overflow: hidden;">Lịch học</label>
+                        <select id="schedule-day" class="form-input" type="text"
+                            style="padding: 8px ;border: solid 2px #9d9d9d; border-radius: 4px">
+                            <option value="true">Thứ 2; Thứ 4; Thứ 6</option>
+                            <option value="false">Thứ 3; Thứ 5; Thứ 7</option>
+                        </select>
+                        <span class="alert" style="padding: 0;height: 24px;font-style: italic;color:rgb(210, 100, 100)">
+                        </span>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column">
+                        <label for="" style="overflow: hidden;">Ca học</label>
+                        <select id="shift" class="form-input" type="text"
+                            style="padding: 8px ;border: solid 2px #9d9d9d; border-radius: 4px">
+                            <option value="1">Ca 1: 7h</option>
+                            <option value="2">Ca 2: 14h</option>
+                            <option value="3">Ca 3: 18h</option>
+                        </select>
+                        <span class="alert" style="padding: 0;height: 24px;font-style: italic;color:rgb(210, 100, 100)">
+                        </span>
+                    </div>
+
+                    <div class="modal-footer"
+                        style="width: 100%; padding: 0; grid-column-start: 1; grid-column-end: 3;">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal"
+                            style="margin: 0 12px;">Cancel</button>
+                        <a class="btn btn-primary" id="btn-accept-class" style="margin: 0;">Accept</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Student Modal-->
+    <div class="modal fade" id="infoStudentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-footer" style="width: 100%; padding: 0; grid-column-start: 1; grid-column-end: 3;">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal"
+                        style="margin: 0 12px;">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Insert frequently -->
+    <script src="js/fakeApi.js"></script>
+
+    <!-- Info student -->
+    <script id="info-student"></script>
+
+    <!-- Dropdown user-->
+    <script src="js/dropdown-user.js"></script>
+
+    <!-- Logout alert -->
+    <script src="js/logout.js"></script>
+
+    <!-- Profile modal -->
+    <script src="js/profile.js"></script>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Grade active -->
+    <script src="js/nav-collapse.js"></script>
+
+    <!-- Add student -->
+    <script src="js/add-student.js"></script>
+
+    <!-- Add class -->
+    <script src="js/add-class.js"></script>
+
+    <!-- Validator -->
+    <script src="./js/validator.js"></script>
+    <script>
+        Validator({
+            formAddStudent: "#form-add-student",
+            formAddClass: "#form-add-class",
+            formProfile: "#form-profile",
+            rules_profile: [
+                Validator.isFullName("#adminFullName"),
+                Validator.isGender("#adminGender"),
+                Validator.isDateOfBirth("#adminDateOfBirth"),
+                Validator.isPhone("#adminPhone"),
+            ],
+            rules_student: [
+                Validator.isFullName("#fullName"),
+                Validator.isGender("#gender"),
+                Validator.isDateOfBirth("#dateOfBirth"),
+                Validator.isPhone("#phone"),
+                Validator.isEmail("#email"),
+                Validator.isAddress('#address')
+            ],
+            rules_class: [
+                Validator.isClassName("#className"),
+                Validator.isTeacher("#teacher"),
+                Validator.isScheduleStart('#schedule-start'),
+                Validator.isScheduleDay('#schedule-day'),
+                Validator.isCourse('#course'),
+                Validator.isShift('#shift'),
+            ],
+            onSubmit: function (data) {
+                data();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

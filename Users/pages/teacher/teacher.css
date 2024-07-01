@@ -1,0 +1,335 @@
+/* Xử lý phần header */
+#header {
+    /* Vị trí */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    /* Cấu trúc */
+    height: var(--header-height);
+    box-shadow: 0px 0px 40px 10px var(--box-shadow-color);
+    background-color: var(--black-color);
+
+    /* Đặc tính */
+    display: flex;
+    /* Set các con nằm ngàng */
+    position: relative;
+    /* Xóa xong cái này ảo ma vãi */
+    /* Khi này chặn container ăn vào header */
+
+    justify-content: space-between;
+    /* Đăỷ xa 2 phần ra 2 hướng */
+    
+}
+
+/* Nửa bên trái header */
+#nav {
+    /* Đặc tính */
+    display: flex;
+    /* Set các con nằm ngang */
+    position: relative;
+    /* Chiếm không gian riêng biệt, không ảnh hưởng các phần tử khác*/
+    /* Ở đây hình như có hay không cũng được:)) */
+}
+
+/* Các lựa chọn trên header */
+#nav>li,
+.header_logo_user li {
+    position: relative;
+    /* Chiếm không gian riêng biệt, không ảnh hưởng các phần tử khác*/
+    /* Để dùng kết hợp với subnav */
+}
+
+/* Logo chính và logo user */
+.header_logo {
+    /* Cấu trúc */
+    width: var(--header-height);
+    height: var(--header-height);
+
+    /* Chữ*/
+    color: var(--white-color);
+    font-size: 30px;
+
+    /* Đặc tính */
+    /* 3 dòng căn giữa logo*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Các lựa chọn ở bên trái header - nav */
+#nav>li{
+    /* Chữ */
+    line-height: var(--header-height);
+    /* Content chữ sẽ chiếm cả thẻ chứa nó (được căn giữa)*/
+    font-weight: bold;
+    color: white;
+    
+    /* Cấu trúc */
+    width: 180px;
+    text-align: center;
+
+    /* Đặc tính */
+    display: block;
+    /* Bỏ dấu đầu câu mặc định của li */
+    /* Mỗi 1 li là 1 khối riêng biệt */
+}
+
+/* Khi nav>li hover thì subnav */
+#nav>li:hover .subnav, .header_logo:hover .subnav{
+    display: grid;
+    z-index: 10;
+    /* Tách thành 2 dòng lựa chọn */
+}
+
+/* Hover vào các lựa chọn trên header */
+#nav>li:hover,
+.header_logo_user:hover {
+    /* Chữ */
+    color: var(--nav-hover-color);
+
+    /* Đặc tính */
+    cursor: pointer;
+}
+
+#nav>li:hover .nav_li_content,
+.header_logo_user:hover .nav_li_content{
+    /* Hiệu ứng */
+    transform: translateY(-2px);
+    transition: all ease-in-out 0.2s;
+    /* Hiệu ứng cho chữ đi lên và subnav không đi theo*/
+}
+
+/* Xử lý subnav lựa chọn */
+/* Các subnav Có thể tái sử dụng lại */
+/* .subnav {
+    Đã viết trong base.css
+}
+
+.subnav li {
+    Đã viết trong base.css
+} */
+
+#nav .subnav li, .header_logo_user .subnav li{
+    /* 1 nửa đã viết trong base */
+    font-weight: bold;
+}
+
+/* Xử lý phần logo*/
+/* .header_logo_user {
+    Đã xử lý bên trên
+} */
+
+/* .header_logo_user:hover {
+     đã xử lý bên trên 
+} */
+
+.header_logo_user .subnav {
+    /* Căn vị trí bên phải */
+    right: 0;
+}
+
+.header_logo_user .subnav li{
+    /* Đã viết 1 nửa trên cung với #nav .subnav li*/
+    text-align: right;
+    line-height: var(--header-height);
+}
+
+.container{
+    background: var(--linear-main-background);
+    height: calc(100vh - var(--header-height));
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_main{
+    width: 95%;
+    height: 90%;
+}
+
+
+
+.container_main_function{
+    width: 100%;
+    height: 100%;
+    /* background: var(--white-color); */
+    /* position: relative; */
+
+    font-size: 1.3em;
+}
+
+.container_main_func_attendance{
+    /* position: relative; */
+    width: 100%;
+    height: 100%;
+    background: var(--white-color);
+    border-radius: var(--border-radius-big);
+}
+
+.attendance_container_form{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.attendance_container_form_content{
+    position: relative;
+    width: 57%;
+    height: 100%;
+
+    padding: 40px;
+}
+
+.attendance_container_form_title{
+    display: flex;
+}
+
+.attendance_form_today{
+    margin-top: 40px;
+    display: flex;
+
+    justify-content: space-between;
+}
+
+.attendance_form_today>div:first-child{
+    align-items: center;
+    display: flex;
+}
+
+.attendance_form_today .btn{
+    width: 30%;
+}
+
+/* CSS for table */
+.table-container {
+    position: relative;
+    width: 100%;
+    height: 70%;
+    overflow-y: auto; /* Only vertical scrollbar */
+    border: 1px solid #ccc; /* Optional: add a border for better visibility */
+}
+
+.content-table {
+
+    position: relative;
+    border-collapse: collapse;
+    /* Dính sát các ô với nhau */
+    
+    min-width: 400px;
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table td {
+    padding: 12px 0px 12px 0px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.content-table tbody tr.active-row {
+    /* font-weight: bold; */
+    color: var(--nav-hover-color);
+}
+
+
+.table-header{
+    margin-top: 40px;
+    display: flex;
+    width: 100%;
+    height: 44px;
+}
+
+.table-header .thead{
+    /* position: absolute; */
+    background-color: var(--nav-hover-color);
+    color: var(--white-color);
+    text-align: left;
+    font-weight: bold;
+
+    line-height: 44px;
+
+}
+
+tr td:nth-child(1), .theadSTT{
+    width: 10%;
+    padding-left: 12px;
+}
+
+tr td:nth-child(2), .theadID{
+    width: 10%;
+}
+
+tr td:nth-child(3){
+    width: 40%;
+}
+.theadName{
+    width: calc(40% - 12px);
+}
+
+tr td:nth-child(4), .theadGender{
+    width: 20%;
+}
+.theadAttend{
+    width: calc(20% + 12px);
+}
+tr td:nth-child(5){
+    width: 20%;
+    text-align: center;
+}
+
+.attendance_container_form_img{
+    width: 50%;
+    height: 100%;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+.attendance_container_form_img>div{
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    border-radius: var(--border-radius-big);
+    background-color: var(--button-hover-color);
+}
+
+.teacher_img{
+    height: 70%;
+
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.teacher_img img{
+    width: 70%;
+}
+
+.attendance_container_form_img_title{
+    height: 30%; 
+}
+
+.attendance_container_form_img_title>h1{
+    text-align: center;
+    line-height: 100px;
+}
+.attendance_container_form_img_title>p{
+    text-align: center;
+}
