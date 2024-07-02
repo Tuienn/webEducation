@@ -244,7 +244,7 @@ function all(resultHandleCookie){
     // Xử lý API
     var studentGETAPI = "https://localhost:7256/api/StudentParent/payment/"+resultHandleCookie;
     var studentPOSTAPI = "https://localhost:7256/api/Payment/Create"
-    var studentSpecialAPI = 'http://localhost:3000/specialAPIStudent'
+    var studentSpecialAPI = 'https://localhost:7256/api/User/student/infiniteId'
 
 
     var arrayStudent = [];

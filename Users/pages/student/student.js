@@ -177,10 +177,12 @@ function getStudentNearest(arrayStudent_spe){
     
     var array = arrayStudent_spe.map(function(student){
         return{
-            studentId: student.userId
+            userId: student.userId
         }
     })
-    var urlId = array[array.length-1].studentId;
+    console.log(array);
+    var urlId = array[array.length-1].userId;
+    console.log(urlId);
 
     //Dòng quan trọng
     getClassFollowChild(urlId, renderClassInfor)
@@ -243,6 +245,8 @@ function returnArrayCalendar(urlID, callback1, callback2){
     // console.log(urlID);
     fetch(ScheduleFollowStudentAPI+'/'+urlID+'/dates')
         .then(function(response){
+            // console.log(urlID);
+            // console.log(response);
             return response.json(); 
         })
         .then(callback1)
