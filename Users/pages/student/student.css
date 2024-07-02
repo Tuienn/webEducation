@@ -63,7 +63,7 @@
 }
 
 .group_infor_class>.infor_class{
-    height: calc(100%/4 - 10px);
+    height: calc(100%/5 - 10px);
     margin-top: 5px;
     margin-bottom: 10px;
     /* border: 1px solid var(--border-color); */
@@ -146,8 +146,9 @@
 .calendar_work{
     display: flex;
     justify-content: center;
-    height: 25%;
+    height: 20%;
     border-bottom-left-radius: var(--border-radius-big);
+    margin-bottom: 5%;
 }
 
 .calendar_day{
@@ -156,7 +157,7 @@
     
     height: 80%;
     width: 80%;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
 
     border-radius: 10px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.12);
@@ -180,7 +181,7 @@
     align-items: center;
 
     width: 30%;
-    border-right: solid 2px;
+    border-right: solid 1px gray;
 }
 
 .calendar_day_selected_work{

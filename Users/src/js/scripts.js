@@ -36,8 +36,17 @@ function reloadPage(){
 function goToHome(btn){
     btn.addEventListener("click", function(){
         document.querySelector('section').setAttribute('style', 'display: none');
-        window.location.href = '../WebBasic';
+        deleteCookie();
+        window.location.href = '/';
     })
+}
+
+function deleteCookie(){
+    document.cookie = `username=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC`
+    document.cookie = `password=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC`
+    document.cookie = `token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC`
+    document.cookie = `id=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC`
+    document.cookie = `role=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC`
 }
 function quitNoti(btn){
     btn.addEventListener("click", quit)
@@ -92,13 +101,13 @@ else if(resultHandleCookie.role==2){
     document.getElementById('parent').style.display = 'none';
 
     POSTAPI_user(2)
-    // setTimeout(() => loadContent(container_main_func, 'pages/student/student.html', 'pages/student/student.js'), 100);
+    setTimeout(() => loadContent(container_main_func, 'pages/student/student.html', 'pages/student/student.js'), 100);
 }
 else if(resultHandleCookie.role==3){
     document.getElementById('teacher').style.display = 'none';
     document.getElementById('student').style.display = 'none';
     POSTAPI_user(3)
-    setTimeout(() => loadContent(container_main_func, 'pages/parent/parent.html', 'pages/parent/parent.js'), 500);
+    setTimeout(() => loadContent(container_main_func, 'pages/parent/parent.html', 'pages/parent/parent.js'), 100);
 
 }
 

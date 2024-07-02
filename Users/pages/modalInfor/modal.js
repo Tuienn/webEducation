@@ -101,8 +101,8 @@ function setModalErrorText(){
     }
 }
 
-var confirm_btn = document.querySelector('.infor_container_confirm_btn');
-confirm_btn.addEventListener("click", setModalErrorText);
+// var confirm_btn = document.querySelector('.infor_container_confirm_btn');
+// confirm_btn.addEventListener("click", setModalErrorText);
 // SỰ kiện kiểm tra input null? được lắng nghe
 
 

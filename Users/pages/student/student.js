@@ -20,7 +20,22 @@ function returnFomatDate(date, month, year){
   
     return `${year}-${month}-${day}`;
 }
+function removeActiveLi(){
+    var group_day_selected = document.querySelectorAll('.days li');
+    for(let i=0; i<group_day_selected.length; i++){
+        if(group_day_selected[i].classList.contains('day_miss')){
+            group_day_selected[i].classList.remove('day_miss');
+        }
+        else if(group_day_selected[i].classList.contains('day_tomorrow')){
+            group_day_selected[i].classList.remove('day_tomorrow');
+        }
+        else if(group_day_selected[i].classList.contains('day_pass')){
+            group_day_selected[i].classList.remove('day_pass');
+         }
 
+
+}
+}
 function renderCalendar() {
     // Lấy thứ đầu tiên của tháng với 0=T2, 1=T3, 2=T4...
     let firstDayofMonth = new Date(currYear, currMonth, 1).getDay()-1;
@@ -70,10 +85,11 @@ function renderCalendar() {
     currentDate.innerText = `${months[currMonth]} - ${currYear}`; // passing current mon and yr as currentDate text
     daysTag.innerHTML = liTag;
 
-    handleEventSelectDay();
+    removeActiveLi();
     if(arrayAttendance != undefined && arraySchedule != undefined){
         handleDataCalendarArray();
     }
+    handleEventSelectDay();
 }
 renderCalendar();
 
@@ -102,7 +118,7 @@ function handleEventSelectDay(){
     var group_day_selected = document.querySelectorAll('.days li');
 
     var day_selected = document.querySelector('.calendar_day_selected_title');
-    var day_work = document.querySelector('.calendar_day_selected_work ul li:last-child div');
+    var day_work = document.querySelector('.calendar_day_selected_work ul li div');
     
     function selectDay(calendar_day_selected){
         day_selected.innerText = calendar_day_selected.title;
@@ -117,7 +133,6 @@ function handleEventSelectDay(){
             day_work.innerText = "Chưa học";
         }
         else{
-            document.querySelector('.calendar_day_selected_work ul li:first-child div').innerText = "Nghỉ"
             day_work.innerText = "Nghỉ"
         }
     }
@@ -140,7 +155,7 @@ function handleEventSelectDay(){
 var studentSpecialAPI = 'https://localhost:7256/api/User/student/infiniteId'
 
 var classFollowChildGET= 'https://localhost:7256/api/UserClass/user'
-var ScheduleFollowStudentAPI = 'http://localhost:3000/getScheuleFollowStudent'
+var ScheduleFollowStudentAPI = 'https://localhost:7256/api/Schedule'
 
 function handleStudentData(callback1){
     fetch(studentSpecialAPI)
@@ -184,6 +199,7 @@ function getClassFollowChild(urlID, callback){
 }
 
 //***Bỏ class ở dataClass.class
+var group_infor_class_content = document.querySelectorAll('.infor_class_content')
 function renderClassInfor(dataClass){
     
     var classInfor = {
@@ -197,7 +213,7 @@ function renderClassInfor(dataClass){
 
 
     document.querySelector('.container_first_img img').src = classInfor.urlImg;
-    var group_infor_class_content = document.querySelectorAll('.infor_class_content')
+    
     group_infor_class_content[0].innerText = classInfor.grade;
     group_infor_class_content[1].innerText = classInfor.className;
     group_infor_class_content[2].innerText = classInfor.year;
@@ -217,7 +233,7 @@ function setTimeSession(shift){
         time = "Tối 18h -> 20h"
     }
 
-    document.querySelector('.calendar_day_selected_work ul li div').innerText=time
+    group_infor_class_content[4].innerText=time
 }
 //Lấy lịch học và lịch điểm danh
 var arraySchedule = [];
@@ -225,7 +241,7 @@ var arrayAttendance = [];
 
 function returnArrayCalendar(urlID, callback1, callback2){
     // console.log(urlID);
-    fetch(ScheduleFollowStudentAPI+'/'+urlID)
+    fetch(ScheduleFollowStudentAPI+'/'+urlID+'/dates')
         .then(function(response){
             return response.json(); 
         })
@@ -261,12 +277,11 @@ function handleDataCalendarArray(){
     var lengthAttend = arrayAttendance.length;
     var lengthSchedule = arraySchedule.length;
     var group_day_selected = document.querySelectorAll('.days li');
-    var day_work = document.querySelector('.calendar_day_selected_work ul li:last-child div');
 
     for(let i=0; i<lengthAttend; i++){
-        var tag = findTagLi_title(group_day_selected[i].title);
+        var tag = findTagLi_title(arraySchedule[i]);
         
-        if(tag.title == arraySchedule[i]){
+        if(tag!=null){
             // console.log(tag.title, arraySchedule[i]);
             if(arrayAttendance[i]==true){
                 tag.classList.add('day_pass');
@@ -278,10 +293,9 @@ function handleDataCalendarArray(){
         }
     }
     for(let i=lengthAttend; i<lengthSchedule; i++){
-        var tag = findTagLi_title(group_day_selected[i].title);
+        var tag = findTagLi_title(arraySchedule[i]);
         if(tag!=null){
             tag.classList.add('day_tomorrow');
-            
         }
     }
 }
