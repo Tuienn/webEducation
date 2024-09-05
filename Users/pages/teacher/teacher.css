@@ -20,7 +20,6 @@
 
     justify-content: space-between;
     /* Đăỷ xa 2 phần ra 2 hướng */
-    
 }
 
 /* Nửa bên trái header */
@@ -34,7 +33,7 @@
 }
 
 /* Các lựa chọn trên header */
-#nav>li,
+#nav > li,
 .header_logo_user li {
     position: relative;
     /* Chiếm không gian riêng biệt, không ảnh hưởng các phần tử khác*/
@@ -59,13 +58,13 @@
 }
 
 /* Các lựa chọn ở bên trái header - nav */
-#nav>li{
+#nav > li {
     /* Chữ */
     line-height: var(--header-height);
     /* Content chữ sẽ chiếm cả thẻ chứa nó (được căn giữa)*/
     font-weight: bold;
     color: white;
-    
+
     /* Cấu trúc */
     width: 180px;
     text-align: center;
@@ -77,14 +76,15 @@
 }
 
 /* Khi nav>li hover thì subnav */
-#nav>li:hover .subnav, .header_logo:hover .subnav{
+#nav > li:hover .subnav,
+.header_logo:hover .subnav {
     display: grid;
     z-index: 10;
     /* Tách thành 2 dòng lựa chọn */
 }
 
 /* Hover vào các lựa chọn trên header */
-#nav>li:hover,
+#nav > li:hover,
 .header_logo_user:hover {
     /* Chữ */
     color: var(--nav-hover-color);
@@ -93,8 +93,8 @@
     cursor: pointer;
 }
 
-#nav>li:hover .nav_li_content,
-.header_logo_user:hover .nav_li_content{
+#nav > li:hover .nav_li_content,
+.header_logo_user:hover .nav_li_content {
     /* Hiệu ứng */
     transform: translateY(-2px);
     transition: all ease-in-out 0.2s;
@@ -111,7 +111,8 @@
     Đã viết trong base.css
 } */
 
-#nav .subnav li, .header_logo_user .subnav li{
+#nav .subnav li,
+.header_logo_user .subnav li {
     /* 1 nửa đã viết trong base */
     font-weight: bold;
 }
@@ -130,13 +131,13 @@
     right: 0;
 }
 
-.header_logo_user .subnav li{
+.header_logo_user .subnav li {
     /* Đã viết 1 nửa trên cung với #nav .subnav li*/
     text-align: right;
     line-height: var(--header-height);
 }
 
-.container{
+.container {
     background: var(--linear-main-background);
     height: calc(100vh - var(--header-height));
 
@@ -145,14 +146,12 @@
     justify-content: center;
 }
 
-.container_main{
+.container_main {
     width: 95%;
     height: 90%;
 }
 
-
-
-.container_main_function{
+.container_main_function {
     width: 100%;
     height: 100%;
     /* background: var(--white-color); */
@@ -161,7 +160,7 @@
     font-size: 1.3em;
 }
 
-.container_main_func_attendance{
+.container_main_func_attendance {
     /* position: relative; */
     width: 100%;
     height: 100%;
@@ -169,13 +168,13 @@
     border-radius: var(--border-radius-big);
 }
 
-.attendance_container_form{
+.attendance_container_form {
     display: flex;
     width: 100%;
     height: 100%;
 }
 
-.attendance_container_form_content{
+.attendance_container_form_content {
     position: relative;
     width: 57%;
     height: 100%;
@@ -183,23 +182,23 @@
     padding: 40px;
 }
 
-.attendance_container_form_title{
+.attendance_container_form_title {
     display: flex;
 }
 
-.attendance_form_today{
+.attendance_form_today {
     margin-top: 40px;
     display: flex;
 
     justify-content: space-between;
 }
 
-.attendance_form_today>div:first-child{
+.attendance_form_today > div:first-child {
     align-items: center;
     display: flex;
 }
 
-.attendance_form_today .btn{
+.attendance_form_today .btn {
     width: 30%;
 }
 
@@ -213,11 +212,10 @@
 }
 
 .content-table {
-
     position: relative;
     border-collapse: collapse;
     /* Dính sát các ô với nhau */
-    
+
     min-width: 400px;
     width: 100%;
     border-collapse: collapse;
@@ -245,15 +243,14 @@
     color: var(--nav-hover-color);
 }
 
-
-.table-header{
+.table-header {
     margin-top: 40px;
     display: flex;
     width: 100%;
     height: 44px;
 }
 
-.table-header .thead{
+.table-header .thead {
     /* position: absolute; */
     background-color: var(--nav-hover-color);
     color: var(--white-color);
@@ -261,37 +258,39 @@
     font-weight: bold;
 
     line-height: 44px;
-
 }
 
-tr td:nth-child(1), .theadSTT{
+tr td:nth-child(1),
+.theadSTT {
     width: 10%;
     padding-left: 12px;
 }
 
-tr td:nth-child(2), .theadID{
+tr td:nth-child(2),
+.theadID {
     width: 10%;
 }
 
-tr td:nth-child(3){
+tr td:nth-child(3) {
     width: 40%;
 }
-.theadName{
+.theadName {
     width: calc(40% - 12px);
 }
 
-tr td:nth-child(4), .theadGender{
+tr td:nth-child(4),
+.theadGender {
     width: 20%;
 }
-.theadAttend{
+.theadAttend {
     width: calc(20% + 12px);
 }
-tr td:nth-child(5){
+tr td:nth-child(5) {
     width: 20%;
     text-align: center;
 }
 
-.attendance_container_form_img{
+.attendance_container_form_img {
     width: 50%;
     height: 100%;
     position: relative;
@@ -299,10 +298,8 @@ tr td:nth-child(5){
     display: flex;
     justify-content: center;
     align-items: center;
-
-    
 }
-.attendance_container_form_img>div{
+.attendance_container_form_img > div {
     position: absolute;
     width: 90%;
     height: 90%;
@@ -310,7 +307,7 @@ tr td:nth-child(5){
     background-color: var(--button-hover-color);
 }
 
-.teacher_img{
+.teacher_img {
     height: 70%;
 
     display: flex;
@@ -318,18 +315,18 @@ tr td:nth-child(5){
     justify-content: center;
 }
 
-.teacher_img img{
+.teacher_img img {
     width: 70%;
 }
 
-.attendance_container_form_img_title{
-    height: 30%; 
+.attendance_container_form_img_title {
+    height: 30%;
 }
 
-.attendance_container_form_img_title>h1{
+.attendance_container_form_img_title > h1 {
     text-align: center;
     line-height: 100px;
 }
-.attendance_container_form_img_title>p{
+.attendance_container_form_img_title > p {
     text-align: center;
 }
